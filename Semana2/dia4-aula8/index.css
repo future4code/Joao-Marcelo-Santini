@@ -27,7 +27,11 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    max-width: 70px;
+}
+
+.imgcompra1 {
+    max-width: 100px;
 }
 
 
