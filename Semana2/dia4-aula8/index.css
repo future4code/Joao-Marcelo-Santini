@@ -39,9 +39,10 @@ img {
     display: inline;
 } */
 
-div img {
+
+/* div img {
     background: black;
-}
+} */
 
 .botao-amarelo {
     background-color: #ffaf43;
