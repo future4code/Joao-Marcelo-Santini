@@ -166,3 +166,8 @@ td button:active {
 #back-button:hover {
     background-color: #635a3d
 }
+
+.pesquisacompras {
+    border-width: 1px;
+    border-style: hidden hidden solid hidden;
+}
