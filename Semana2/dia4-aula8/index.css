@@ -30,9 +30,10 @@ img {
     width: 100px;
 }
 
-div>p:first-child {
+
+/* div>p:first-child {
     display: inline;
-}
+} */
 
 div img {
     background: black;
@@ -72,6 +73,10 @@ div img {
   *  ESTILOS HOME 
   *
   **/
+
+.pcontainer {
+    padding-top: 100px;
+}
 
 #container-de-descricao {
     background-color: #2274a5;
