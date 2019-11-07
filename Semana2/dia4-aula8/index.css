@@ -20,10 +20,12 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    outline: none;
 }
 
 button:focus {
     color: white;
+    outline: none;
 }
 
 img {
