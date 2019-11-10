@@ -15,7 +15,7 @@
                      position: relative;
                      background: white;
                      width: 100%;
-                     height: 500px;
+                     height: 600px;
                  }
                  
                  .h1topo {
@@ -45,6 +45,35 @@
                      width: 55px;
                      left: 5px;
                      top: 125px;
+                 }
+                 
+                 .menu1 {
+                     position: absolute;
+                     bottom: 0;
+                     left: 100px;
+                 }
+                 
+                 .menu2 {
+                     position: absolute;
+                     bottom: 0;
+                     left: 220px;
+                 }
+                 
+                 .menu3 {
+                     position: absolute;
+                     bottom: 0;
+                     left: 380px;
+                 }
+                 
+                 .menu4 {
+                     position: absolute;
+                     bottom: 0;
+                     left: 590px;
+                 }
+                 
+                 div.topo a {
+                     text-decoration: none;
+                     color: black;
                  }
                  
                  .conteudo {
@@ -184,7 +213,7 @@
                  }
                  
                  div.gallery:hover {
-                     border: solid #777;
+                     border: solid black;
                  }
                  
                  .habilidades {
@@ -270,4 +299,16 @@
                  
                  .linkrodape {
                      margin-left: 43%;
+                 }
+                 
+                 #linkrodape1:hover {
+                     opacity: 50%;
+                 }
+                 
+                 #linkrodape2:hover {
+                     opacity: 50%;
+                 }
+                 
+                 #linkrodape3:hover {
+                     opacity: 50%;
                  }
