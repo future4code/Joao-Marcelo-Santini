@@ -1,0 +1,102 @@
+*,
+html,
+body {
+    font-family: Arial, Helvetica;
+    font-size: 22px;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+body {
+    background-color: gray;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header {
+    background: #1abc9c;
+    text-align: center;
+}
+
+#imgtopo {
+    width: 220px;
+}
+
+.divlinks {
+    text-align: center;
+    background-color: white;
+}
+
+.links {
+    padding: 30px;
+    color: black;
+}
+
+.imgestoque {
+    max-width: 40px;
+}
+
+.conteudo {
+    text-align: center;
+    border: solid;
+    border-width: 5px;
+    padding: 30px;
+}
+
+.h2perfil {
+    font: bold;
+    color: #000000;
+}
+
+.perfil {
+    color: white;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #1abc9c;
+    border: solid;
+    border-width: 5px;
+    border-color: black;
+}
+
+.footer p {
+    font-size: 16px;
+}
+
+.footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+}
+
+.botao {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5.7px;
+    cursor: pointer;
+    width: 150px;
+}
+
+.botao {
+    border: 1px solid black;
+    background: #1abc9c;
+}
+
+.botao:active {
+    color: #1abc9c;
+    background: white;
+}
+
+.divbotao {
+    text-align: center;
+}
