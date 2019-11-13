@@ -1,0 +1,11 @@
+.tabelaFuncionarios {
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.tabelaFuncionarios td,
+th {
+    border: 1px solid black;
+}
