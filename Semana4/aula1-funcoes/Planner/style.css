@@ -1,0 +1,18 @@
+main {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+main div {
+    border: solid 1px;
+    height: 600px;
+    width: 400px;
+    margin-top: 10px;
+}
+
+main {
+    min-width: 500px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
