@@ -23,8 +23,33 @@ function postar() {
 
     console.log(arrayPost)
 
+    teste() //chamando função limpar inputs
+
+    addPostHTML()
+
+
+
+
+}
+
+
+function addPostHTML() {
+    const container = document.getElementById('areaDaPostagem')
+    for (const potes of arrayPost) {
+        container.innerHTML += "<h1>" + potes.titulo + "</h1>"
+        container.innerHTML += "<h4>" + potes.autor + "</h4>"
+        container.innerHTML += "<div>" + potes.texto + "</div>"
+    }
+
+}
+
+
+
+
+
+
+function teste() {
     document.getElementById('inputTitulo').value = ''
     document.getElementById('inputAutor').value = ''
     document.getElementById('textareaTexto').value = ''
-
 }
