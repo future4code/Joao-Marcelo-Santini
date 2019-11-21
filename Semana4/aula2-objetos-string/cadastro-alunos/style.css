@@ -1,0 +1,29 @@
+    .cadastro {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input {
+        max-width: 200px;
+    }
+    
+    button {
+        max-width: 100px;
+        margin-top: 10px;
+    }
+    
+    #listaCriada {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    #listaCriada div {
+        border: solid;
+        min-width: 250px;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+    
+    div p {
+        margin-left: 10px;
+    }
