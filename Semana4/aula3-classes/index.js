@@ -38,7 +38,7 @@ function addPostHTML() {
     container.innerHTML = ""
     for (const potes of arrayPost) {
         container.innerHTML += "<h1>" + potes.titulo + "</h1>"
-        container.innerHTML += "<h4>" + potes.autor + "</h4>"
+        container.innerHTML += "<h4>" + "Autor: " + potes.autor + "</h4>"
         container.innerHTML += "<p>" + potes.texto + "</p>"
     }
 
