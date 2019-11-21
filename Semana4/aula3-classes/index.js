@@ -21,11 +21,11 @@ function postar() {
 
     arrayPost.push(novoPost)
 
-    console.log(arrayPost)
+    // console.log(arrayPost)
 
     teste() //chamando função limpar inputs
 
-    addPostHTML()
+    addPostHTML() // chamando função de inserir no HTML
 
 
 
@@ -35,10 +35,11 @@ function postar() {
 
 function addPostHTML() {
     const container = document.getElementById('areaDaPostagem')
+    container.innerHTML = ""
     for (const potes of arrayPost) {
         container.innerHTML += "<h1>" + potes.titulo + "</h1>"
         container.innerHTML += "<h4>" + potes.autor + "</h4>"
-        container.innerHTML += "<div>" + potes.texto + "</div>"
+        container.innerHTML += "<p>" + potes.texto + "</p>"
     }
 
 }

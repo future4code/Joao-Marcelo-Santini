@@ -15,4 +15,5 @@
 
 #areaDaPostagem {
     display: flex;
+    flex-direction: column;
 }
