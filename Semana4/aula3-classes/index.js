@@ -1,3 +1,6 @@
+const arrayPost = []
+
+
 class post {
     constructor(titulo, autor, texto) {
         this.titulo = titulo
@@ -14,6 +17,14 @@ function postar() {
     novoPost.texto = document.getElementById('textareaTexto').value
 
 
-    console.log(novoPost)
+    // console.log(novoPost)
+
+    arrayPost.push(novoPost)
+
+    console.log(arrayPost)
+
+    document.getElementById('inputTitulo').value = ''
+    document.getElementById('inputAutor').value = ''
+    document.getElementById('textareaTexto').value = ''
 
 }
