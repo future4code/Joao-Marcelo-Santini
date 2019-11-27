@@ -62,7 +62,7 @@ render() {
         <div className="likeComentario">
             
             <img className="coracao" src={this.state.imagem} onClick={this.aoDarLike} /> <label>{this.state.contador} </label>
-           <div><br/> <img className="coracao" src={require('../.././icones/comment_icon.svg')} onClick={this.comentarioInputContador} /> <input></input> </div>
+           <div><br/> <img className="coment" src={require('../.././icones/comment_icon.svg')} onClick={this.comentarioInputContador} /> <label>{this.state.contado}</label> <input></input> </div>
         
         </div>
             
