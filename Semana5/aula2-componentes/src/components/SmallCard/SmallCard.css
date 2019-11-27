@@ -1,0 +1,15 @@
+.Contato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid black 1px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+.Contato img {
+    max-width:20px;
+    margin-right: 5px;
+}
