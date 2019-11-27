@@ -1,0 +1,39 @@
+body{
+    font-size: 2.7vh;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.containerPai {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid black 1px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.containerImagem img {
+    max-width: 400px;
+   
+   
+}
+
+
+.likeComentario {
+    display: block;
+   
+    
+}
+
+.likeComentario img {
+width: 20px;
+
+}
+
+input{
+    width: 350px;
+    height: 100px;
+}
