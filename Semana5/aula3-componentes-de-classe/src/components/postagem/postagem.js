@@ -11,7 +11,10 @@ class Postagem extends React.Component {
         this.state = {
             likeDado: false,
             contador: 0,
-            imagem: imagem1
+            imagem: imagem1,
+            contadorComentario: 0,
+            inputComentario: null,
+            criarBotaoComentar: null
             
         }
     }
@@ -39,13 +42,24 @@ class Postagem extends React.Component {
 
 
 
-//    comentarioInputContador = () => {
-//        if (this.state.likeDado){
-//            return <input></input>;
-//        } else {
-//            return;
-//        }
-//    }
+
+   comentarioInputContador = () => {
+       this.setState({
+        inputComentario: <textarea/>,
+        criarBotaoComentar: <button onClick={this.enviarComentario}>Comentar</button>
+       })
+    }
+
+
+enviarComentario = () => {
+    const novoContadorDeComentario = this.state.contadorComentario + 1;
+    this.setState({
+        contadorComentario: novoContadorDeComentario,
+        inputComentario:null,
+        criarBotaoComentar:null
+
+    })
+}
 
 
 
@@ -62,7 +76,9 @@ render() {
         <div className="likeComentario">
             
             <img className="coracao" src={this.state.imagem} onClick={this.aoDarLike} /> <label>{this.state.contador} </label>
-           <div><br/> <img className="coment" src={require('../.././icones/comment_icon.svg')} onClick={this.comentarioInputContador} /> <label>{this.state.contado}</label> <input></input> </div>
+           <div><br/> <img className="coment" src={require('../.././icones/comment_icon.svg')} onClick={this.comentarioInputContador} /> <label>{this.state.contadorComentario}</label> {this.state.inputComentario} 
+           {this.state.criarBotaoComentar}
+           </div>
         
         </div>
             
