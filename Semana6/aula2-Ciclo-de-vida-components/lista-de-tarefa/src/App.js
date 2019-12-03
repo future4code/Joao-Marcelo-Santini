@@ -25,15 +25,19 @@ class App extends React.Component{
   }
 
 
-  adicionaItem = () => {
-    const novoTexto = {
-      texto: this.state.inputTexto,
-    }
-    const listaTextoCopia = [...this.state.listaTexto, novoTexto]
+ adicionaItem = () => {
+   const novoTexto = {
+     texto: this.state.inputTexto
+   }
+
+  const listaNova = [...this.state.listaTexto, novoTexto]
     this.setState({
-      listaTexto: listaTextoCopia,
-    })
-  }
+      listaTexto: listaNova,
+    
+    }) 
+
+ }
+
 
 
   render() {
@@ -56,10 +60,19 @@ class App extends React.Component{
             </select>
         </div>
         
-        <ul>
-          
-        </ul>
+        <h2>Lista de Tarefas</h2>
+
+      
+      <div>
         
+      {this.state.listaTexto.map(e => {
+                return(
+                <ul><EnviarTarefa tarefa={e.texto}/></ul>
+                )
+              })}
+
+
+      </div>  
 
       </div>
     )
