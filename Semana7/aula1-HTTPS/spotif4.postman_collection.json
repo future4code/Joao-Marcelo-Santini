@@ -165,7 +165,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/searchPlaylist?playlistName=metal",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/searchPlaylist?playlistName=Metal",
 							"protocol": "https",
 							"host": [
 								"us-central1-spotif4",
@@ -180,7 +180,7 @@
 							"query": [
 								{
 									"key": "playlistName",
-									"value": "metal"
+									"value": "Metal"
 								}
 							]
 						},
@@ -299,7 +299,7 @@
 					"response": []
 				},
 				{
-					"name": "lista2",
+					"name": "playListMetalAlternativo",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -310,7 +310,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getAllPlaylists/getPlaylistMusics",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/132a09e1-b0a8-4db2-aca4-e24396f65d1a",
 							"protocol": "https",
 							"host": [
 								"us-central1-spotif4",
@@ -320,9 +320,255 @@
 							"path": [
 								"api",
 								"playlists",
-								"getAllPlaylists",
-								"getPlaylistMusics"
+								"getPlaylistMusics",
+								"132a09e1-b0a8-4db2-aca4-e24396f65d1a"
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playListIndie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth",
+								"value": "santini",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/cde7afdc-2acc-43c8-86a4-daf7d3f08e48",
+							"protocol": "https",
+							"host": [
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"api",
+								"playlists",
+								"getPlaylistMusics",
+								"cde7afdc-2acc-43c8-86a4-daf7d3f08e48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bucaPlayListInexistente",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth",
+								"value": "santini",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/searchPlaylist?playlistName=Locura",
+							"protocol": "https",
+							"host": [
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"api",
+								"playlists",
+								"searchPlaylist"
+							],
+							"query": [
+								{
+									"key": "playlistName",
+									"value": "Locura"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarMusicaIDinexistente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "santini",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/removeMusicFromPlaylist?playlistId=132a09e1-b0a8-4db2-aca4-e24396f65d1a&musicId=assad",
+							"protocol": "https",
+							"host": [
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"api",
+								"playlists",
+								"removeMusicFromPlaylist"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "132a09e1-b0a8-4db2-aca4-e24396f65d1a"
+								},
+								{
+									"key": "musicId",
+									"value": "assad"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playlistIdInexistente",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth",
+								"value": "santini",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/:playlistID",
+							"protocol": "https",
+							"host": [
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"api",
+								"playlists",
+								"getPlaylistMusics",
+								":playlistID"
+							],
+							"variable": [
+								{
+									"key": "playlistID",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criarPlaylistSemNome",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "santini",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/createPlaylist",
+							"protocol": "https",
+							"host": [
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"api",
+								"playlists",
+								"createPlaylist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApagarTodaPlaylist",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "santini",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/deletePlaylist?playlistId=cde7afdc-2acc-43c8-86a4-daf7d3f08e48",
+							"protocol": "https",
+							"host": [
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"api",
+								"playlists",
+								"deletePlaylist"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "cde7afdc-2acc-43c8-86a4-daf7d3f08e48"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllPlayList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaQualquerNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerPlayList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []
