@@ -36,14 +36,15 @@ const token = "santini";
         const allUsers = response.data.result;
         // console.log(response.data.result)
         this.setState({ allUsers: allUsers });
+      })
+
+      request.then(response => {
+        this.getAllUsers();
       });
+
     };
 
 
-    componentDidMount(){
-      this.getAllUsers();
-      
-    }
 
     // .......................................Controlar inputs, e cadastrar.............................................................
   
@@ -69,8 +70,28 @@ const token = "santini";
       headers: {
         "api-token" : token
       }
-     });
-    };
+     })
+     
+     request
+      .then((response) => {
+         alert("Cadastrado")
+     })
+      .catch((error) => {
+        alert("Erro");
+    })
+
+  };
+
+//............................................Deletar Item...............................
+
+deleteItem(){
+
+}
+
+
+
+
+
 
   // ...................................................................................................
   
@@ -78,11 +99,11 @@ const token = "santini";
       return(
         <div className="App">
         
-        <button>Lista de Cadastro</button>
+        <button onClick={this.getAllUsers}>Lista de Cadastro</button>
           <div>
             <ul>
              {this.state.allUsers.map(users => (
-             <li>{users.name}<button>Del</button></li>
+             <li key={users.id}>{users.name}<button onClick={() => this.deleteItem(users.id)} >x</button></li>
              ))}
             </ul>
 
