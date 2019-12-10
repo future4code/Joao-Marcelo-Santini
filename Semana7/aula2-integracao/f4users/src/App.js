@@ -34,15 +34,16 @@ const token = "santini";
 
       request.then((response) =>{
         const allUsers = response.data.result;
-        // console.log(response.data.result)
+      console.log(response.data.result)
         this.setState({ allUsers: allUsers });
-      })
-
-      request.then(response => {
-        this.getAllUsers();
       });
 
-    };
+      // request.then(response => {
+      //   this.getAllUsers();
+      // }); 
+      // LOOP DOIDão
+
+};
 
 
 
@@ -84,9 +85,21 @@ const token = "santini";
 
 //............................................Deletar Item...............................
 
-deleteItem(){
-
-}
+  deleteItem = () => {
+    const url = `${baseUrl}/users/deleteUser?id=string`;
+    const request = axios.delete(url,{
+      headers: {
+        "api-token" : token
+      }
+    });
+    
+    request.then((response) =>{
+      const deleteid = response.data.result.id;
+    
+      this.setState({ deleteid: deleteid });
+    });
+    
+  }
 
 
 
