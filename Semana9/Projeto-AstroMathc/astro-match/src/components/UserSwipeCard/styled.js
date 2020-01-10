@@ -80,6 +80,11 @@ export const UserName = styled.div`
 `
 
 export const UserAge = styled.div`
-  margin-left: 10px;
+  	margin-left: 10px;
 	font-size: 20px;
+`
+
+export const UserBio = styled.div`
+
+	font-size: 16px;
 `
