@@ -31,6 +31,7 @@ class MatchScreen extends Component {
 						<ListItem key={match.name}>
 							<Avatar src={match.photo}/>
 							<ListText>{match.name}</ListText>
+							<button>Perfil</button>
 						</ListItem>
 					))}
 				</List>

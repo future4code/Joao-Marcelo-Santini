@@ -44,7 +44,7 @@ export class SwipeScreen extends Component {
 	}
 
 	render() {
-		const {profileToSwipe, goToMatchScreen} = this.props
+		const {profileToSwipe, goToMatchScreen, goToProfileScreen} = this.props
 		const {currentAnimation} = this.state
 
 		return (
