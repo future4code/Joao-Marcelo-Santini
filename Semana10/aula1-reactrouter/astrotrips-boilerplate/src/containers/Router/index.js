@@ -1,15 +1,13 @@
 import React from "react";
-import { ConnectedRouter, routerActions } from "connected-react-router";
+import { ConnectedRouter } from "connected-react-router";
 import { Switch, Route } from "react-router-dom";
 import LoginPage from "../LoginPage";
-import Home from "../Home/index";
 
 
 
 
-export const routes = {
-  home: "/",
-  login: "/login"
+const routes = {
+  root: "/"
   // Outras rotas aqui
 };
 
@@ -17,8 +15,7 @@ function Router(props) {
   return (
     <ConnectedRouter history={props.history}>
       <Switch>
-        <Route path= {router.home} component={Home} />
-        <Route path={routes.login} component={LoginPage} />
+        <Route path={routes.root} component={LoginPage} />
       </Switch>
     </ConnectedRouter>
   );
