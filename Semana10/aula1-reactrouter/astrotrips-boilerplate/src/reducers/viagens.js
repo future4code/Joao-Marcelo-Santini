@@ -1,15 +1,18 @@
 const initialState = {
 
-    listaViagens: []
+   allTrips: [],
 
 };
 
 
-export const reducerViagens = ( state = initialState, action) => {
+export const trips = ( state = initialState, action) => {
     switch(action.type){
-        case "MOSTRAR_VIAGENS":
+        case "SET_TRIPS":
+            return {...state, allTrips: action.payload.trips}
 
         default:
             return state;
     }
 }
+
+export default trips;
