@@ -32,15 +32,16 @@ width: 150px;
 height: 100px;
 `;
 
+
 const MainContent = styled.div`
 width: 100%;
-height: 450px;
+height: 600px;
 text-align: center;
 align-self: center;
 background-color: #3498DB;
 background-image: linear-gradient(#6BFFBA, #206CE8);
+margin-top: 50px;
 `;
-
 const FooterHome = styled.div`
 text-align: center;
 height: 50px;
@@ -51,13 +52,9 @@ background-color: #206CE8;
 color: white;
 `;
 
-const SpaceGif = styled.div`
-
-`;
-
 
 const Home = props => {
-    console.log(props);
+    
     return (
       <MainDiv>
        <Header>
