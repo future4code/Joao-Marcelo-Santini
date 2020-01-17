@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push, replace, goBack } from "connected-react-router";
 import { routes } from "../Router"
-import TextField from "@material-ui/core/TextField";
 import styled, { StyleSheetManager } from "styled-components";
 import futurex from "../../img/futurex.png";
+import beer from "../../img/beer.jpg"
 
 
 
@@ -42,6 +42,15 @@ background-color: #3498DB;
 background-image: linear-gradient(#6BFFBA, #206CE8);
 margin-top: 50px;
 `;
+
+const SpaceBeer = styled.img`
+margin-left: 20px;
+max-width: 500px;
+max-height:500px;
+border-style: solid;
+border-width: 5px;
+`;
+
 const FooterHome = styled.div`
 text-align: center;
 height: 50px;
@@ -59,14 +68,15 @@ const Home = props => {
       <MainDiv>
        <Header>
         <Logo src={futurex} />
-        
-          <LinkHeader onClick= {props.goToLogin}>LOGIN/ADM</LinkHeader>
-          <LinkHeader onClick= {props.goToViagens}>Viagens</LinkHeader>
-          <LinkHeader onClick= {props.goToInscricao}>Inscrição</LinkHeader>
+          <LinkHeader onClick= {props.goToLogin}>LOGIN</LinkHeader>
+          <LinkHeader onClick= {props.goToViagens}>VIAGENS</LinkHeader>
+          <LinkHeader onClick= {props.goToInscricao}>INSCRIÇÃO</LinkHeader>
         </Header>
         <MainContent>
-        <h2>Viagens Espaciais</h2>
-        <h2>Luais nas estrelas</h2>
+          <h2>Futurex Viagens</h2>
+          <p>Venha viajar com a gente </p>
+          
+        <SpaceBeer src={beer} />
         </MainContent>
       <FooterHome>
         FUTUREX Viagens

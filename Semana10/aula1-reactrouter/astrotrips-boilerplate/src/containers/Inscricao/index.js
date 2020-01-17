@@ -5,6 +5,8 @@ import { routes } from "../Router"
 import styled from "styled-components";
 import futurex from "../../img/futurex.png";
 import SelectCountry from "./select.js"
+import { getTrips } from "../actions/ListarViagens"
+
 
 
 
@@ -101,6 +103,12 @@ class Inscricao extends Component {
     }
   }
 
+  componentDidMount(dispatch) {
+    this.props.getTrips()
+  }
+  
+
+
   handleInputChange = event => {
     
     const { name, value } = event.target;
@@ -127,12 +135,12 @@ class Inscricao extends Component {
        <Header>
         
         <Logo src={futurex} />
-          <LinkHeader onClick=  {this.props.goToLogin}>LOGIN/ADM</LinkHeader>
-          <LinkHeader onClick= {this.props.goToViagens}>Viagens</LinkHeader>
+          <LinkHeader onClick=  {this.props.goToLogin}>LOGIN</LinkHeader>
+          <LinkHeader onClick= {this.props.goToViagens}>VIAGENS</LinkHeader>
           <LinkHeader onClick=  {this.props.goToHome}>HOME</LinkHeader>
         </Header>
         
-        <MainContent>
+      <MainContent>
 
           <h2>Formulário</h2>
 
@@ -153,12 +161,18 @@ class Inscricao extends Component {
             />
           </div>
           ))}
-           <SelectCountry  value = {this.state.selectedCountry} onChange ={this.handleSelectedCountry} />
+          <label>Planeta:</label>
+        <select> 
+        {this.props.trips.map((trip)=>
+          <option value="" selected="selected">{trip.planet}</option>
+        )}
+          </select>
 
-           <button type="submit">Enviar</button>
+           <SelectCountry  value = {this.state.selectedCountry} onChange ={this.handleSelectedCountry} />
+        
         </form>
-         
-        </MainContent>
+          <button type="submit">Enviar</button>
+      </MainContent>
       
         <FooterHome>
           FUTUREX Viagens
@@ -171,12 +185,16 @@ class Inscricao extends Component {
 } 
 
     
+const mapStateToProps = state => ({
+  trips: state.trips.allTrips,
+})
  
 function mapDispatchToProps(dispatch) {
   return {
     goToHome: () => dispatch(push(routes.home)) ,
     goToLogin: () => dispatch(push(routes.login)),
     goToViagens: () => dispatch(push(routes.viagens)),
+    getTrips: () => dispatch(getTrips())
   };
 }
 
@@ -184,7 +202,8 @@ function mapDispatchToProps(dispatch) {
 
 
 
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Inscricao);
