@@ -1,5 +1,6 @@
 import React from "react";
 import TaskCreate from "../TaskCreate";
+import TaskList from "../TaskList";
 import { connect } from "react-redux";
 
 class Planner extends React.Component {
@@ -7,6 +8,7 @@ class Planner extends React.Component {
     return <div>
       <h1>Planner</h1>
       <TaskCreate></TaskCreate>
+      <TaskList></TaskList>
     </div>
   }
 }

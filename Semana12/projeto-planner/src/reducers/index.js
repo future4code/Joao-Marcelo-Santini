@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import task from "./createTask";
+import tasks from "./getTasks";
 
 export const rootReducer = combineReducers({
   // Seus reducers aqui
-  task,
+  tasks,
 });

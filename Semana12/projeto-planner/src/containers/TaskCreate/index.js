@@ -13,8 +13,8 @@ const MainContent = styled.div`
 
 
 const LoginWrapper = styled.form`
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 
@@ -37,7 +37,8 @@ const LoginWrapper = styled.form`
   };
   
 
-  handleCreateTaskButton = () =>{
+  handleCreateTaskButton = (event) =>{
+    event.preventDefault()
     this.props.createTask(this.state.text, this.state.day,)
   }
   handleSelectDay = event => {
@@ -47,12 +48,12 @@ const LoginWrapper = styled.form`
 
   render() {
     const {text} = this.state;
-    console.log(this.state)
+   
 
     return (
   
       <MainContent>
-        <LoginWrapper>
+        <LoginWrapper onSubmit={this.handleCreateTaskButton}>
           <TextField
             onChange={this.handleFieldChange}
             name="text"
@@ -70,7 +71,7 @@ const LoginWrapper = styled.form`
             <option value="Sabado">Sábado</option>
             <option value="Domingo">Domingo</option>
           </select>
-          <Button onClick={this.handleCreateTaskButton}>Cadastrar</Button>
+          <Button type="submit" >Cadastrar</Button>
       </LoginWrapper>
     </MainContent>
     );
