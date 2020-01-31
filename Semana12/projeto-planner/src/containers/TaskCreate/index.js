@@ -9,12 +9,37 @@ import { createTask } from "../../actions"
 const MainContent = styled.div`
   display:flex;
   justify-content: center;
-`
+  margin-bottom: 100px;
+  margin-top: 100px;
+  `;
 
 
-const LoginWrapper = styled.form`
+const FormTask = styled.form`
   display: flex;
   flex-direction: column;
+  border: solid 2px;
+  border-spacing: 20px;
+  width:50vh;
+  min-width: 250px;
+`;
+
+const Select = styled.select`
+  width: 100%;
+  height: 35px;
+  background: white;
+  color: grey;
+  padding-left: 5px;
+  font-size: 14px;
+  border: none;
+
+  option {
+    color: white;
+    background: grey;
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+    padding: 0px 2px 1px;
+  }
 `;
 
 
@@ -53,7 +78,7 @@ const LoginWrapper = styled.form`
     return (
   
       <MainContent>
-        <LoginWrapper onSubmit={this.handleCreateTaskButton}>
+        <FormTask onSubmit={this.handleCreateTaskButton}>
           <TextField
             onChange={this.handleFieldChange}
             name="text"
@@ -61,7 +86,8 @@ const LoginWrapper = styled.form`
             label="Tarefa"
             value={text}
           />
-          <select name="day" onChange={this.handleSelectDay} value={this.state.day}>
+          <br/>
+          <Select name="day" onChange={this.handleSelectDay} value={this.state.day}>
             <option value="" selected="selected">Escolha o dia</option>
             <option value="Segunda">Segunda-Feira</option>
 	          <option value="Terça">Terça-Feira</option>
@@ -70,9 +96,10 @@ const LoginWrapper = styled.form`
             <option value="Sexta">Sexta-Feira</option>
             <option value="Sabado">Sábado</option>
             <option value="Domingo">Domingo</option>
-          </select>
+          </Select>
+          <br/>
           <Button type="submit" >Cadastrar</Button>
-      </LoginWrapper>
+      </FormTask>
     </MainContent>
     );
   }
