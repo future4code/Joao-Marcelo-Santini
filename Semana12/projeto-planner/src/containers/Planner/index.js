@@ -29,7 +29,7 @@ const Footer = styled.div`
   bottom:0;
 `;
 
-class Planner extends React.Component {
+export class Planner extends React.Component {
   render() {
     return <Body>
         <Header>
@@ -42,5 +42,4 @@ class Planner extends React.Component {
   }
 }
 
-export default connect()
-(Planner);
+export default connect()(Planner);

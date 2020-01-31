@@ -48,73 +48,69 @@ render(){
         return task.day === "Domingo"
     })
 
-
-
-
-
-    return(
-        <Fragment>
-            <DivListaDia>
-                <ConteudoDia>
-                    <h3>Segunda-Feira</h3>
-                    {filtroSegunda.map((task)=> 
-                        <p>
-                            {task.text}
-                        </p>
-                    )}
-                </ConteudoDia>
-                <ConteudoDia>
-                    <h3>Terça-Feira</h3>
-                    {filtroTerca.map((task)=>
-                        <p>
-                            {task.text}
-                        </p>
-                    )}
-                </ConteudoDia>
-                <ConteudoDia>
-                    <h3>Quarta-Feira</h3>
-                    {filtroQuarta.map((task)=>
+return(
+    <Fragment>
+        <DivListaDia>
+            <ConteudoDia>
+                <h3>Segunda-Feira</h3>
+                {filtroSegunda.map((task)=> 
                     <p>
                         {task.text}
                     </p>
-                    )}
-                </ConteudoDia>
-                <ConteudoDia>
-                    <h3>Quinta-Feira</h3>
-                    {filtroQuinta.map((task)=> 
-                        <p>
-                            {task.text}
-                        </p>
-                    )}
-                    </ConteudoDia>
-                <ConteudoDia>
-                    <h3>Sexta-Feira</h3>
-                    {filtroSexta.map((task)=> 
-                        <p>
-                            {task.text}
-                        </p>
-                    )}
-                </ConteudoDia>
-                <ConteudoDia>
-                    <h3>Sábado</h3>
-                    {filtroSabado.map((task)=> 
-                        <p>
-                            {task.text}
-                        </p>
-                    )}
-                </ConteudoDia>
-                <ConteudoDia>
-                    <h3>Domingo</h3>
-                    {filtroDomingo.map((task)=> 
-                        <p>
-                            {task.text}
-                        </p>
-                    )}
-                </ConteudoDia>
-            </DivListaDia>
-        </Fragment>
+                )}
+            </ConteudoDia>
+            <ConteudoDia>
+                <h3>Terça-Feira</h3>
+                {filtroTerca.map((task)=>
+                    <p>
+                        {task.text}
+                    </p>
+                )}
+            </ConteudoDia>
+            <ConteudoDia>
+                <h3>Quarta-Feira</h3>
+                {filtroQuarta.map((task)=>
+                <p>
+                    {task.text}
+                </p>
+                )}
+            </ConteudoDia>
+            <ConteudoDia>
+                <h3>Quinta-Feira</h3>
+                {filtroQuinta.map((task)=> 
+                    <p>
+                        {task.text}
+                    </p>
+                )}
+            </ConteudoDia>
+            <ConteudoDia>
+                <h3>Sexta-Feira</h3>
+                {filtroSexta.map((task)=> 
+                    <p>
+                        {task.text}
+                    </p>
+                )}
+            </ConteudoDia>
+            <ConteudoDia>
+                <h3>Sábado</h3>
+                {filtroSabado.map((task)=> 
+                    <p>
+                        {task.text}
+                    </p>
+                )}
+            </ConteudoDia>
+            <ConteudoDia>
+                <h3>Domingo</h3>
+                {filtroDomingo.map((task)=> 
+                    <p>
+                        {task.text}
+                    </p>
+                )}
+            </ConteudoDia>
+        </DivListaDia>
+    </Fragment>
     )
-}
+  }
 }
 
 

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste TaskList Snapshot TaskList 1`] = `
+<div
+  className="sc-bdVaJa cotxIj"
+>
+  <div
+    className="sc-bwzfXH FdJee"
+  >
+    <h3>
+      Segunda-Feira
+    </h3>
+  </div>
+  <div
+    className="sc-bwzfXH FdJee"
+  >
+    <h3>
+      Terça-Feira
+    </h3>
+  </div>
+  <div
+    className="sc-bwzfXH FdJee"
+  >
+    <h3>
+      Quarta-Feira
+    </h3>
+  </div>
+  <div
+    className="sc-bwzfXH FdJee"
+  >
+    <h3>
+      Quinta-Feira
+    </h3>
+  </div>
+  <div
+    className="sc-bwzfXH FdJee"
+  >
+    <h3>
+      Sexta-Feira
+    </h3>
+  </div>
+  <div
+    className="sc-bwzfXH FdJee"
+  >
+    <h3>
+      Sábado
+    </h3>
+  </div>
+  <div
+    className="sc-bwzfXH FdJee"
+  >
+    <h3>
+      Domingo
+    </h3>
+  </div>
+</div>
+`;
