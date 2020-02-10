@@ -1,0 +1,21 @@
+{
+  "name": "task",
+  "version": "1.0.0",
+  "description": "Lista de tarefas simples para o user",
+  "main": "taskList.js",
+  "scripts": {
+    "start": "node taskList.js tarefa.txt Comprar ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "task",
+    "brasil",
+    "simples",
+    "izi",
+    "mamão",
+    "com",
+    "açucar"
+  ],
+  "author": "Jmsa",
+  "license": "ISC"
+}
