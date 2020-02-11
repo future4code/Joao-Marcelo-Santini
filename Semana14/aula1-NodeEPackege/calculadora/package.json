@@ -1,0 +1,16 @@
+{
+  "name": "calculadora",
+  "version": "1.0.0",
+  "description": "Calcula os calculos calculados",
+  "main": "myCalculator.js",
+  "scripts": {
+    "start": "node myCalculator.js ADD 2 2 ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "calculadora"
+  ],
+
+  "author": "Jmsa",
+  "license": "ISC"
+}
