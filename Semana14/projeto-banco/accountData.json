@@ -1,0 +1,18 @@
+{
+  "accountList": [
+    {
+      "name": "Joao",
+      "birth": "28/01/1550",
+      "cpf": "1111",
+      "balance": 0,
+      "transactionList": []
+    },
+    {
+      "name": "Joao",
+      "birth": "28/01/1550",
+      "cpf": "1111",
+      "balance": 0,
+      "transactionList": []
+    }
+  ]
+}
