@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const ResidentialClient_1 = require("./ResidentialClient");
+const CommercialClient_1 = require("./CommercialClient");
+const IndustrialClient_1 = require("./IndustrialClient");
+const ClientManager_1 = require("./ClientManager");
+const brain = new ResidentialClient_1.ResidentialClient("Brain", 1, 230, "Brain", "111.111.111", "16430-000");
+const joao = new ResidentialClient_1.ResidentialClient("João", 2, 200, "João", "222.222.222", "1500-000");
+const escolaF4 = new CommercialClient_1.CommercialClient("AstroDev", 3, 400, "Future4", "15.400.500/0001-06", "1500-030");
+const lojinhaDoBrian = new CommercialClient_1.CommercialClient("Brian", 4, 550, "LojinhaDoBrian", "14.422.279/0001-06", "1300-555");
+const cocaCola = new IndustrialClient_1.IndustrialClient("Coca-Cola", 5, 5000, "Coca-Cola", "007-007", "15000-000");
+const octavios = new IndustrialClient_1.IndustrialClient("Dr Octopus", 6, 999999, "Octavios", "0070-507", "13655-000");
+const clientManager = new ClientManager_1.ClientManager();
+clientManager.addClient(brain);
+clientManager.addClient(joao);
+clientManager.addClient(escolaF4);
+clientManager.addClient(lojinhaDoBrian);
+clientManager.addClient(cocaCola);
+clientManager.addClient(octavios);
+clientManager.printClientBills();
+clientManager.calculateAllIncome();
+//# sourceMappingURL=index.js.map
