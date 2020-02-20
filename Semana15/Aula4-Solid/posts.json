@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "text": "Escreve o texto ! Cara",
+      "author": "Brian",
+      "creationDate": "2020-02-20T19:51:26.965Z"
+    },
+    {
+      "text": "Eu sou brabo ! Moro no RIo, sou gang bro !",
+      "author": "Brian",
+      "creationDate": "2020-02-20T19:51:59.652Z"
+    }
+  ]
+}
