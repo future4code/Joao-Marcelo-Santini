@@ -1,0 +1,26 @@
+select * from films;
+
+INSERT INTO films (film_id, title, description, release_year, length, rating, special_features)
+VALUES 
+(6, "MATRIX", "Um jovem programador é atormentado por estranhos pesadelos nos quais sempre está conectado por cabos a um imenso sistema de computadores do futuro.", 1999 , 150, "PG-13", "Commentaries,Trailer "),
+(7, "300", "Em 480 A.C., existe uma guerra entre a Pérsia, liderada pelo rei Xerxes, e a Grécia.", 2007 , 117, "NC-17", "Commentaries,Trailer, Behind the scenes "),
+(8, "Como Treinar o Seu Dragão", "Soluço é um adolescente viking da ilha de Berk, onde lutar contra dragões é um meio de vida.", 2010 , 117, "PG", "Commentaries,Trailer, Behind the scenes "),
+(9, "6 Underground", "Liderados por um homem enigmático (Ryan Reynolds), seis bilionários forjam as suas próprias mortes e criam um grupo de elite para combater o crime e mudar o mundo, mesmo sem terem chances de ser identificados.", 2019 , 127, "NC-17", "Commentaries, Behind the scenes "),
+(10, "O Chamado", "A jornalista Rachel Keller decide investigar a morte de sua sobrinha e descobre que quatro adolescentes morreram misteriosamente sete dias depois de assistir a um vídeo com imagens assustadoras.", 2002 , 145, "NC-17", "Commentaries, Behind the scenes ");
+
+1-
+ALTER TABLE films
+ADD watched BOOL DEFAULT FALSE;
+
+2-
+UPDATE films
+SET watched = true
+WHERE rating = 3;
+
+3-
+ALTER TABLE films
+ADD lucky_number int DEFAULT 0 ;
+
+4-
+UPDATE films
+SET lucky_number = FLOOR(RAND()*1000) ;

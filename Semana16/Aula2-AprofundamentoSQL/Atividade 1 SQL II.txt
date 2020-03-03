@@ -1,0 +1,24 @@
+Atividade 1
+
+1-
+select * 
+from city
+order by population desc
+limit 5
+
+2-
+select avg(population) 
+from city
+group by District
+
+3-
+select count(Name)
+from city
+group by District
+
+4-
+select count(*), CountryCode
+from city
+group by CountryCode
+order by count(CountryCode) DESC
+limit 10
