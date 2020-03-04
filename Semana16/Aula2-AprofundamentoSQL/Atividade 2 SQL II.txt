@@ -1,0 +1,52 @@
+2)
+
+1-
+select *
+from country
+where Population>=100000
+limit 100
+
+2-
+select count(*)
+from country
+where Population>=5000000
+
+3-
+select sum(Population) as "Soma da População"
+from country
+where Continent = "Asia"
+
+4-
+select count(*), GovernmentForm
+from country
+where GovernmentForm Like "%Republic%" OR GovernmentForm like "%Monarchy%"
+group by GovernmentForm;
+
+5-
+select count(*), GovernmentForm
+from country
+group by GovernmentForm
+order by count(*) Desc
+limit 1;
+
+6-
+select avg(population), continent
+from country
+group by continent;
+
+7-
+select Name, indepYear
+from country
+order by indepYear DESC
+limit 10;
+
+8-
+select avg(LifeExpectancy), lower(Continent)
+from country
+group by Continent;
+
+9-
+select continent, SurfaceArea 
+from country
+order by SurfaceArea DESC
+limit 3;
