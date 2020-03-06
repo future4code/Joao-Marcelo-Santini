@@ -10,7 +10,7 @@ const connection = knex({
   connection: {
     host: 'ec2-18-229-236-15.sa-east-1.compute.amazonaws.com',
     user: 'joao',
-    password: 'm2hCAiCQBmyalb7le1KS',
+    password: process.env.SENHA_BANCO,
     database: 'bouman-joao'
   }
 });
