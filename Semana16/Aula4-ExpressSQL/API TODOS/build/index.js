@@ -91,13 +91,31 @@ app.get('/userByName', (request, response) => {
     }
 });
 // 5- Pegar todos os users mostra por data , e orderm alfabetica
-app.get('/getUsersBy/:dateToCompare', (request, response) => __awaiter(void 0, void 0, void 0, function* () {
-    const dateToCompare = request.params.dateToCompare;
-    const query = connection.raw(`SELECT name, birth_date FROM users WHERE birth_date < "${dateToCompare}" 
-    order by name ASC`);
-    const result = yield query;
-    response.send(result);
+app.get('/getAllUsers/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const order = req.query.order;
+    const age = req.query.age;
+    let query = connection.select("*").from('users');
+    if (order) {
+        query = query.orderBy("name", order);
+    }
+    if (age) {
+        query = query.where({ "birth_date": age });
+    }
+    try {
+        const result = yield query;
+        res.send(result);
+    }
+    catch (error) {
+        res.send(error);
+    }
 }));
+// app.get('/getUsersBy/:dateToCompare', async (request: Request, response: Response) => {
+//   const dateToCompare = request.params.dateToCompare;
+//   const query = connection.raw(`SELECT name, birth_date FROM users WHERE birth_date < "${dateToCompare}" 
+//     order by name ASC`);
+//   const result = await query;
+//   response.send(result);
+// });
 // 6- Cadastrar Tarefa
 app.post('/createTodo', (req, res) => {
     const nonQuery = connection.insert(req.body).into('todos');
@@ -132,6 +150,8 @@ app.put('/todoToResponsible/:id', (request, response) => {
         response.send(error);
     });
 });
+// 9 - Pegar tarefas criadas por um usuário
+app.get('getTodosByUser/id/datelimit');
 // Trecho do código responsável por inicializar todas as APIs
 const server = app.listen(process.env.PORT || 3000, () => {
     if (server) {

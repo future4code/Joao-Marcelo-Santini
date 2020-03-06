@@ -23,7 +23,7 @@ app.get('/', (req: Request, res: Response) => {
       '/updateUser/ID': 'altera o nickname do user usando ID. ',
       '/DelUser?nick=NICKNAME': 'Deleta usuario com o nick passado',
       '/userByName?name=NAME': 'Busca o usuário pelo nome',
-      '/getUsersBy/DATA': 'Mostra os usuarios filtrada pela data de nascimento em ordem alfabetica',
+      'getAllUsers/': 'Mostra os usuarios filtrada pela data ou alfabetica',
       '/createTodo': 'Criar tarefa',
       '/updateTodo/ID': 'altera a terefa pelo ID. Descrição e Data ',
       '/todoToResponsible/id': 'Cadastra usuario responsavel pela tarefa passada pelo ID'
@@ -100,14 +100,33 @@ app.get('/userByName', (request: Request, response: Response) => {
 
 // 5- Pegar todos os users mostra por data , e orderm alfabetica
 
-app.get('/getUsersBy/:dateToCompare', async (request: Request, response: Response) => {
-  const dateToCompare = request.params.dateToCompare;
-
-  const query = connection.raw(`SELECT name, birth_date FROM users WHERE birth_date < "${dateToCompare}" 
-    order by name ASC`);
-  const result = await query;
-  response.send(result);
+app.get('/getAllUsers/', async (req: Request, res: Response) => {
+  const order = req.query.order
+  const age = req.query.age
+  let query =  connection.select("*").from('users')
+  
+  if(order){
+    query =  query.orderBy("name", order)
+  } 
+  if(age){
+    query =  query.where({"birth_date": age})
+  }
+  try{
+    const result = await query;
+    res.send(result)
+  }catch(error){
+    res.send(error)
+  }
 });
+
+// app.get('/getUsersBy/:dateToCompare', async (request: Request, response: Response) => {
+//   const dateToCompare = request.params.dateToCompare;
+
+//   const query = connection.raw(`SELECT name, birth_date FROM users WHERE birth_date < "${dateToCompare}" 
+//     order by name ASC`);
+//   const result = await query;
+//   response.send(result);
+// });
 
 
 // 6- Cadastrar Tarefa
