@@ -1,6 +1,7 @@
 import { BaseDB } from "./baseDatabase";
 import { UserGateway } from "../business/gateways/userGateway";
 import { User } from "../business/entities/users";
+import { Relation } from "../business/entities/relations";
 
 
 export class UserDB extends BaseDB implements UserGateway {
@@ -17,6 +18,17 @@ export class UserDB extends BaseDB implements UserGateway {
             )
         )
     };
+    
+    private mapDBRelationToRelation(input?: any): Relation | undefined {
+        return (
+            input && new Relation(
+                input.adderFriendId,
+                input.friendAddedId
+            )
+        )
+    };
+    
+
 
     public async signUp(user: User): Promise<void> {
         await this.connection.raw(`
@@ -47,7 +59,26 @@ export class UserDB extends BaseDB implements UserGateway {
            INSERT INTO ${this.relationsTable} (adderFriendId, friendAddedId)
            VALUES ('${adderFriendId}', '${friendAddedId}')
         `)
-     };
+    };
+
+    async userUnfollowRelation(adderFriendId: string, friendAddedId: string): Promise<void> {
+        await this.connection.raw(`
+         DELETE FROM ${this.relationsTable}
+         WHERE adderFriendId='${adderFriendId}' AND friendAddedId='${friendAddedId}'
+         `)
+    }
+
+    async getUserRelationsData(adderFriendId: string, friendAddedId: string): Promise<Relation | undefined> {
+        const result = await this.connection.raw(`
+        SELECT * 
+        FROM ${this.relationsTable} 
+        WHERE adderFriendId='${adderFriendId}' AND friendAddedId='${friendAddedId}'  
+        `)
+        if (!result[0][0]){
+            return undefined
+        }
+        return this.mapDBRelationToRelation(result[0][0])
+    }
 
 
 }

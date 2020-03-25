@@ -1,4 +1,4 @@
-import { Request, Response, response } from 'express'
+import { Request, Response } from 'express'
 import { SingUpUC } from '../../../business/usecases/user/singUp'
 import { UserDB } from '../../../data/userDatabase'
 
