@@ -16,7 +16,6 @@ export const CreatePostEndpoint  = async (req: Request, res: Response) => {
            description: req.body.description,
            type: req.body.type,
            user_id: data.id
-
         })
 
         res.status(200).send(result)
