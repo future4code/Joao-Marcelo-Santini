@@ -1,0 +1,53 @@
+a- Tudo ok.
+
+b-{
+  "statusCode": 400,
+  "body": "{\"message\":\"Missing input\"}"
+}
+c-{
+  "statusCode": 400,
+  "body": "{\"message\":\"Missing input\"}"
+}
+
+d-{
+  "statusCode": 400,
+  "body": "{\"message\":\"Missing email\"}"
+}
+
+e-{
+  "statusCode": 400,
+  "body": "{\"message\":\"Invalid password\"}"
+}
+
+f-{
+  "statusCode": 200,
+  "body": "{\"message\":\"User is correct\"}"
+}
+
+g-{
+  "statusCode": 422,
+  "body": "{\"message\":\"Missing @\"}"
+}
+
+Adicionado verificação
+}
+  }else if (user.email.indexOf('@') === -1) {
+    return {
+      statusCode: 422,
+      body: JSON.stringify({ message: "Missing @" })
+    };
+  }
+
+h- {
+  "user": {
+		"info": {
+			"name": "Astrodev",
+			"email": "astrodev@f4.com.br",
+			"password": "123456"
+		}
+  }
+}
+
+
+
+

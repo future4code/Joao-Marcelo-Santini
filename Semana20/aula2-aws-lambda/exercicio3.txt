@@ -1,0 +1,21 @@
+exports.myFunc = async (event) => {
+
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify(event.a + event.b)
+    };
+    return response;
+};
+
+{
+  "statusCode": 200,
+  "body": "10"
+}
+
+
+body usado.
+
+{
+  "a": 5,
+  "b": 5
+}

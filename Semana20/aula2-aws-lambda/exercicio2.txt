@@ -1,0 +1,11 @@
+exports.myFunc = async (event) => {
+    // TODO implement
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('Olá mundo, sou uma mensagem da AWS'),
+    };
+    return response;
+};
+
+
+e no manipulador alterei o nome para index.myFunc
