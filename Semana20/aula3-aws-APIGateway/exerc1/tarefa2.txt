@@ -1,0 +1,29 @@
+1-
+Se enviar um body vazio retorna um "Misssing input!" e se ele não hadBody e hasQUeries, tambem retornar a menssagem.
+
+Retorna um 200, se tiver hasBody e hasQueries.
+
+Retorna um 400, quando passamos dados errados.
+
+
+
+2-
+JSON.parse, faz a conversão do body, para um JavaScript OBJ.
+
+EXEMPLO:
+
+Imagine we received this text from a web server:
+
+'{ "name":"John", "age":30, "city":"New York"}'
+
+Use the JavaScript function JSON.parse() to convert text into a JavaScript object:
+
+var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
+
+3-
+Retorna um 200, quando o hasBody e o hasQueries não forem nulos ou indefinidos (VERDADEIROS). Valor do body é verdairo. Pois na verificação ele não é nulo ou indefinido.
+
+4- 
+Retorna um 400, quando o hasBody e o hasQueries são falsos. Ou seja, não possuem valores ou são indefinidos.
+
+5- Testes feitos, retornando tudo corretamente.
