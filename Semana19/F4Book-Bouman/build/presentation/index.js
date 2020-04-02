@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const singUp_1 = require("./endpoints/user/singUp");
+const login_1 = require("./endpoints/user/login");
+const followUser_1 = require("./endpoints/user/followUser");
+const unfollowUser_1 = require("./endpoints/user/unfollowUser");
+const createPost_1 = require("./endpoints/posts/createPost");
+const getFeedOfPosts_1 = require("./endpoints/feed/getFeedOfPosts");
+const getFeedOfPostsByType_1 = require("./endpoints/feed/getFeedOfPostsByType");
+const app = express_1.default();
+app.use(express_1.default.json());
+app.post('/signup', singUp_1.singUpEndpoint);
+app.post('/login', login_1.loginEndpoint);
+app.post('/user/follow', followUser_1.followUserEndpoint);
+app.delete('/user/unfollow', unfollowUser_1.unfollowUserEndpoint);
+app.post('/createPost', createPost_1.CreatePostEndpoint);
+app.get('/feed', getFeedOfPosts_1.FeedOfPostsEndpoints);
+app.get('/feed/type', getFeedOfPostsByType_1.FeedOfPostsByTypeEndpoint);
+exports.default = app;
