@@ -1,0 +1,1 @@
+Feito o a lambada antes da APIGateway, e linkada .

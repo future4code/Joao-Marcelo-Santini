@@ -1,0 +1,38 @@
+const execute = (cep, apikey) => {
+  
+  if (!apikey || !cep) {
+    throw new Error("Está faltando informação");
+  }
+  if (apikey !== "key") {
+    throw new Error("Chave de API inválida");
+  }
+  const regex = new RegExp(
+    "\\d{5}[-]\\d{3}"
+  );
+  return regex.test(cep);
+};
+
+exports.handler = async event => {
+ try{
+ const body = JSON.parse(event.body)
+ const cep = body.cep
+ 
+ const apikey = event.headers.apikey
+ 
+ const result = execute(cep, apikey)
+ 
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: result ? "É valido" : "Não é valido"
+    })
+  };
+}catch(error){
+  return{
+    statusCode: 400,
+    body: JSON.stringify({
+      errorMessage: error.message
+    })
+  }
+}
+};
