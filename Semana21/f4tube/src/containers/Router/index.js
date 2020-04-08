@@ -5,15 +5,17 @@ import Home from "../Home/index";
 import LoginPage from "../LoginPage/index"
 import PostVideo from "../PostVideo";
 import SignUp from "../SignUp";
+import { UserProfile } from "../UserProfile";
 
 
 
 
-const routes = {
+export const routes = {
   Home: "/",
   LoginPage: "/login",
   PostVideo: "/postVideo",
   SignUp: "/signUp",
+  UserProfile: "/Profile",
   // Outras rotas aqui
 };
 
@@ -25,6 +27,7 @@ function Router(props) {
         <Route exact path={routes.LoginPage} component={LoginPage} />
         <Route exact path={routes.PostVideo} component={PostVideo} />
         <Route exact path={routes.SignUp} component={SignUp} />
+        <Route exact path={routes.UserProfile} component={UserProfile} />
       </Switch>
     </ConnectedRouter>
   );

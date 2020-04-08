@@ -64,7 +64,7 @@ const FooterHome = styled.div`
     text-align:center;
 `;
 
-export class Home extends Component {
+export class UserProfile extends Component {
 
 
 
@@ -78,21 +78,19 @@ export class Home extends Component {
                     </div>
                     <NavHome>
                         <li>
-                            <Button onClick={this.props.goToLogin} >Login</Button>
-                            <Button onClick={this.props.goToSignUp} >SingUp</Button>
+                            <Button onClick={this.props.goToHome} >Home </Button>
+                            <Button onClick={this.props.goToSignUp} >Logout </Button>
                         </li>
                     </NavHome>
                 </HeaderHome>
                 <div>
                     <ListCategory>
-                        <Button>Filmes</Button>
-                        <Button>Musica</Button>
-                        <Button>Infantil</Button>
-                        <Button>Documentario</Button>
+                        <Button>Post Video</Button>
+                        <Button>Change Password</Button>
                     </ListCategory>
                 </div>
                 <FeedVideos>
-                    <h1>Videos</h1>
+                    <h1>Videos Postados pelo Usuarios LOGADO</h1>
                 </FeedVideos>
                 <FooterHome>
                     <LogoHome src={logo} />
@@ -104,8 +102,7 @@ export class Home extends Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    goToLogin: () => dispatch(push(routes.LoginPage)),
-    goToSignUp: () => dispatch(push(routes.SignUp))
+    goToHome: () => dispatch(push(routes.Home))
 
 })
 
@@ -114,4 +111,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
     null,
     mapDispatchToProps
-)(Home);
+)(UserProfile);
