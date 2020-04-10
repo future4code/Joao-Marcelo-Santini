@@ -5,7 +5,7 @@ import Home from "../Home/index";
 import LoginPage from "../LoginPage/index"
 import PostVideo from "../PostVideo";
 import SignUp from "../SignUp";
-import { UserProfile } from "../UserProfile";
+import UserProfile  from "../UserProfile";
 
 
 

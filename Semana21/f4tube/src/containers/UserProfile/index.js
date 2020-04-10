@@ -49,9 +49,10 @@ const FeedVideos = styled.div`
 
 const ListCategory = styled.li`
     display: flex;
+    background-color: #A14AE8;
     justify-content: space-between;
-    border: solid 1px violet;
     padding: 5px;
+    border: solid 2px black;
 `;
 
 
@@ -102,8 +103,8 @@ export class UserProfile extends Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    goToHome: () => dispatch(push(routes.Home))
-
+    goToHome: () => dispatch(push(routes.Home)),
+    // goToSignUp: () => dispatch(push(routes.SignUp))
 })
 
 
