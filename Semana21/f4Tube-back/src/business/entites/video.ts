@@ -5,8 +5,7 @@ export class Video{
         private link: string,
         private description: string,
         private creationDate: Date,
-        private user_id: string
-
+        private user_id: string,
     ){}
     
     public getId(): string{
@@ -56,4 +55,5 @@ export class Video{
     public setUser_id(user_id: string): void{
         this.user_id = user_id
     }
+
 }

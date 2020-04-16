@@ -1,26 +1,27 @@
-import { Request, Response} from "express";
-import { SignUpUC } from "../../../business/usecases/user/signUp";
-import { UserDatabase } from "../../../data/userDatabase";
+import { Request, Response } from "express";
+import { SignUpUC } from "../../../business/usecase/user/signUp";
+import { UserDB } from "../../../data/userDatabase";
+import { JwtAuthorizer } from "../../lambda/services/jwtAuthorizer";
+import { BcryptService } from "../../lambda/services/bcryptServices";
+import { RefreshTokenDB } from "../../../data/refreshTokenDataBase";
 
-
-export const signUpEndpoint = async ( req: Request, res: Response) => {
+export const SignUpEndpoint = async (req: Request, res: Response) => {
     try {
-        const signUpUC = new SignUpUC(new UserDatabase());
+        const signUpUC = new SignUpUC(new UserDB(), new JwtAuthorizer(), new BcryptService(), new RefreshTokenDB());
 
-        const result = await signUpUC.execute({
-            
+        const newUser = await signUpUC.execute({
             name: req.body.name,
-            email: req.body.email,
             birthdate: req.body.birthdate,
+            email: req.body.email,
             password: req.body.password,
-            photo: req.body.photo
+            photo: req.body.photo,
+            device: req.body.device
         });
 
-        res.status(200).send(result);
-    } catch (err) {
+        res.status(200).send(newUser);
+    } catch(err){
         res.status(400).send({
-            message: err.message,
-            ...err
-        })
+            message: err.message
+        });
     }
-};
+}

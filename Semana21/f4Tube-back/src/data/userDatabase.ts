@@ -1,75 +1,93 @@
-import { BaseDatabase } from "./baseDatabase";
-import { UserGateway } from "../business/gateways/UserGateway";
-import { User } from "../business/entities/user";
+import { BaseDB } from "./baseDatabase";
+import { UserGateway } from "../business/gateways/userGateway";
+import { User } from "../business/entites/user";
 
+export class UserDB extends BaseDB implements UserGateway{
+    private userTableName = "user"
 
-
-export class UserDatabase extends BaseDatabase implements UserGateway {
-    private userTable: string = "user";
-
-    public mapUserToDBUser(input?: any): User | undefined {
-        return (
+    private mapUserToDbUser(input?: any): User | undefined{
+        return(
             input &&
             new User(
                 input.id,
                 input.name,
+                input.birthdate,
                 input.email,
                 input.password,
-                input.birthdate,
                 input.photo
             )
         )
     }
 
-    public async signUp(user: User): Promise<void> {
-        await this.connection.raw(`
-        INSERT INTO ${this.userTable} (id,name,email,password,birthdate,photo)
-        VALUES(
-            '${user.getId()}',
-            '${user.getName()}',
-            '${user.getEmail()}',
-            '${user.getPassword()}',
-            '${user.getBirthDate()}',
-            '${user.getPhoto()}'
-        )
-    `);
+    public async getUserById(id: string): Promise<User | undefined>{
+        const result = await this.connection.raw(`
+            SELECT *
+            FROM ${this.userTableName}
+            WHERE id = '${id}'
+        `)
+
+        if(!result[0][0]){
+            return undefined;
+        }
+
+        return await this.mapUserToDbUser(result[0][0])
     }
 
-    public async getUserByEmail(email:string): Promise<User | undefined> {
-        const user = await this.connection.raw(`
-            SELECT * FROM ${this.userTable} WHERE email = '${email}'
-        `);
-        if (!user[0][0]) {
-            return undefined
-        }
-
-        return this.mapUserToDBUser(user[0][0])
-    };
-
-
-    public async getUserById(id: string): Promise<User | undefined> {
-        const user = await this.connection.raw(`
-          SELECT * FROM ${this.userTable} WHERE id = '${id}'
-        `);
-    
-        if (!user[0][0]) {
-          return undefined;
-        }
-    
-        return this.mapUserToDBUser(user[0][0])
-      }
-
-
-      public async updatePassword(userId: string, newPassword: string): Promise<void> {
+    public async signUp(user: User): Promise<void> {
         await this.connection.raw(`
-          UPDATE ${this.userTable}
-          SET password = '${newPassword}'
-          WHERE id = '${userId}'
-        `);
-      }
-    
-    
+            INSERT INTO ${this.userTableName}(id, name, birthdate, email, password, photo)
+            VALUES(
+                '${user.getId()}',
+                '${user.getName()}',
+                '${user.getBirthdate()}',
+                '${user.getEmail()}',
+                '${user.getPassword()}',
+                '${user.getPhoto()}'
+            )
+        `)
+    }
 
+    public async updatePassword(id: string, password: string): Promise<void>{
+        await this.connection.raw(`
+            UPDATE ${this.userTableName}
+            SET password = '${password}'
+            WHERE id = '${id}'
+        `)
+    }
 
+    public async login(email: string): Promise<User | undefined>{
+        const user = await this.connection.raw(`
+            SELECT *
+            FROM ${this.userTableName}
+            WHERE email='${email}'
+        `)
+
+        if(!user[0][0]){
+            return undefined;
+        }
+
+        return await this.mapUserToDbUser(user[0][0]);
+    }
+
+    public async getAllUsers(): Promise <User[] | undefined>{
+        const users = await this.connection.raw(`
+            SELECT * 
+            FROM ${this.userTableName}
+        `)
+
+        if(!users[0][0]){
+            return undefined;
+        };
+
+        return await users[0].map((user: any)=>{
+            return new User(
+                user.id,
+                user.name,
+                user.birthdate,
+                user.email,
+                user.password,
+                user.photo
+            )
+        })
+    }  
 }
-
