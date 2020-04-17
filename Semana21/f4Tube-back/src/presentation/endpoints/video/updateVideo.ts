@@ -7,7 +7,7 @@ export const UpdateVideoEndpoint = async (req: Request, res: Response) => {
     try {   
         const updateVideoUC = new UpdateVideoUC(new VideoDB(), new JwtAuthorizer());
         const result = await updateVideoUC.execute({
-            token: req.headers.auth as string,
+            token: req.headers.Authorization as string,
             id: req.params.id,
             title: req.body ? req.body.title : "",
             description: req.body ? req.body.description : ""

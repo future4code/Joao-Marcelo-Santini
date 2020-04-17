@@ -9,7 +9,7 @@ export const UpdatePasswordEndpoint = async (req: Request, res: Response) => {
 
         const oldPassword = req.body.oldPassword;
         const newPassword = req.body.newPassword;
-        const token =  req.headers.auth as string;
+        const token =  req.headers.Authorization as string;
 
         if(oldPassword === newPassword){
             throw new Error("You cannot use the last same password!")

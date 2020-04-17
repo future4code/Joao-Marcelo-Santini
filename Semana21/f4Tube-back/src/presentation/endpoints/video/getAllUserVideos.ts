@@ -8,7 +8,7 @@ export const GetAllUserVideosEndpoint = async (req: Request, res: Response) => {
 
         const getAllUserVideosUC = new GetAllUserVideosUC(new VideoDB, new JwtAuthorizer())
         const result = await getAllUserVideosUC.execute({
-            token: req.headers.auth as string,
+            token: req.headers.Authorization as string,
             id: req.query ? req.query.id : ""
         })
 

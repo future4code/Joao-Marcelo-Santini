@@ -10,7 +10,7 @@ export const CreateVideoEndpoint = async (req: Request, res: Response) =>{
             title: req.body.title,
             link: req.body.link,
             description: req.body.description,
-            token: req.headers.auth as string
+            token: req.headers.Authorization as string
         })
 
         res.status(200).send(result)

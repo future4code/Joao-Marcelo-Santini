@@ -7,7 +7,7 @@ export const GetAllUsersEndpoint = async (req: Request, res: Response) => {
     try{
         const getAllUsersUC = new GetAllUserUC(new UserDB(), new JwtAuthorizer())
         const result = await getAllUsersUC.execute({
-            token: req.headers.auth as string
+            token: req.headers.Authorization as string
         })
 
         res.status(200).send(result)
