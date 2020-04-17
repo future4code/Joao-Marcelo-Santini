@@ -1,9 +1,9 @@
 import {  User } from "../../entites/user";
 import { v4 } from 'uuid';
-import { UserGateway } from "../../gateways/userGateway";
 import { AuthenticationGateway } from "../../gateways/authenticationGateway";
 import { CryptographyGateway } from "../../gateways/cryptographyGateway";
 import { InvalidParameterError } from "../../error/InvalidParams";
+import { UserGateway } from "../../gateways/UserGateway";
 
 export class SignUpUC {
     constructor(

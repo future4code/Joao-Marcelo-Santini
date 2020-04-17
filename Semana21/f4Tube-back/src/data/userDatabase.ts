@@ -1,6 +1,6 @@
 import { BaseDB } from "./baseDatabase";
-import { UserGateway } from "../business/gateways/userGateway";
 import { User } from "../business/entites/user";
+import { UserGateway } from "../business/gateways/UserGateway";
 
 export class UserDB extends BaseDB implements UserGateway{
     private userTableName = "user"

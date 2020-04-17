@@ -1,5 +1,5 @@
-import { UserGateway } from "../../gateways/userGateway";
 import { AuthenticationGateway } from "../../gateways/authenticationGateway";
+import { UserGateway } from "../../gateways/UserGateway";
 
 export class GetAllUserUC{
     constructor(
@@ -12,10 +12,6 @@ export class GetAllUserUC{
 
         if(!userInfo){
             throw new Error("User info not found!")
-        }
-
-        if(userInfo.type !== "ADMIN"){
-            throw new Error("Only admins can use this endpoint")
         }
 
         const users = await this.userGateway.getAllUsers()
@@ -31,7 +27,6 @@ export class GetAllUserUC{
                     name: user.getName(),
                     birthdate: user.getBirthdate(),
                     email: user.getEmail(),
-                    type: user.getType(),
                     photo: user.getPhoto()
                 }
             })
@@ -53,6 +48,5 @@ export interface GetAllUserUCOutputUser {
     name: string;
     birthdate: Date;
     email: string;
-    type: string;
     photo: string;
 }

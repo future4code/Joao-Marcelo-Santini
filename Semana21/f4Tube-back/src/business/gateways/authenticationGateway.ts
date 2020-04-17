@@ -1,5 +1,3 @@
-import { UserType } from "../entites/user";
-
 export interface AuthenticationGateway {
   generateToken(input: UsersInfoForToken, expiresIn: string): string;
   getUsersInfoFromToken(token: string): UsersInfoForToken;
@@ -9,6 +7,5 @@ export interface AuthenticationGateway {
 
 export interface UsersInfoForToken {
   id: string;
-  type?: UserType;
   userDevice?: string;
 }

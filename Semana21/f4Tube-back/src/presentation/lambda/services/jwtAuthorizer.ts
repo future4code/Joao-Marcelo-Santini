@@ -8,7 +8,6 @@ export class JwtAuthorizer implements AuthenticationGateway {
         const token = jwt.sign(
             {
             id: input.id,
-            type: input.type
             },
             this.JWT_SECRET,
             {
@@ -24,7 +23,6 @@ export class JwtAuthorizer implements AuthenticationGateway {
         const result = jwt.verify(token, this.JWT_SECRET) as UsersInfoForToken; // userId, type
         return {
             id: result.id,
-            type: result.type,
             userDevice: result.userDevice
         };
     }

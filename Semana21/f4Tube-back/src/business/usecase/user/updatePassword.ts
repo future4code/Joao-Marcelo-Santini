@@ -1,7 +1,7 @@
-import { UserGateway } from "../../gateways/userGateway";
 import { AuthenticationGateway } from "../../gateways/authenticationGateway";
 import { CryptographyGateway } from "../../gateways/cryptographyGateway";
 import { InvalidParameterError } from "../../error/InvalidParams";
+import { UserGateway } from "../../gateways/UserGateway";
 
 export class UpdatePasswordUC {
     constructor(
