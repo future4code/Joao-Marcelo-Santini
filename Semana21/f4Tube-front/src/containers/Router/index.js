@@ -28,6 +28,7 @@ function Router(props) {
         <Route exact path={routes.PostVideo} component={PostVideo} />
         <Route exact path={routes.SignUp} component={SignUp} />
         <Route exact path={routes.UserProfile} component={UserProfile} />
+        <Route exact path={routes.PostVideo} component={PostVideo} />
       </Switch>
     </ConnectedRouter>
   );

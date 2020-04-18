@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button"
 import styled from "styled-components";
 import { connect } from "react-redux";
 import logo from "../../resources/logo.png";
+import { postLoginUser } from "../../actions/user";
 
 
 const DivContet = styled.div`
@@ -91,7 +92,7 @@ class LoginPage extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  // login: (email, password) => dispatch(postLoginUser(email, password)),
+  login: (email, password) => dispatch(postLoginUser(email, password)),
 })
 
 export default connect(

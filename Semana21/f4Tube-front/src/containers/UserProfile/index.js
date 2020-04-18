@@ -68,6 +68,11 @@ const FooterHome = styled.div`
 export class UserProfile extends Component {
 
 
+    handleLogout = () => {
+        localStorage.removeItem("accessToken")
+        this.props.goToHome()
+    }
+
 
     render() {
         return (
@@ -80,13 +85,13 @@ export class UserProfile extends Component {
                     <NavHome>
                         <li>
                             <Button onClick={this.props.goToHome} >Home </Button>
-                            <Button onClick={this.props.goToSignUp} >Logout </Button>
+                            <Button onClick={this.handleLogout} >Logout </Button>
                         </li>
                     </NavHome>
                 </HeaderHome>
                 <div>
                     <ListCategory>
-                        <Button>Post Video</Button>
+                        <Button onClick={this.props.goToPostVideo} >Post Video</Button>
                         <Button>Change Password</Button>
                     </ListCategory>
                 </div>
@@ -104,7 +109,7 @@ export class UserProfile extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
     goToHome: () => dispatch(push(routes.Home)),
-    // goToSignUp: () => dispatch(push(routes.SignUp))
+    goToPostVideo: () => dispatch(push(routes.PostVideo)),
 })
 
 

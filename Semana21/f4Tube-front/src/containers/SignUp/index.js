@@ -6,6 +6,7 @@ import { routes } from "../Router/index";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import logo from "../../resources/logo.png";
+import { createUser } from "../../actions/user";
 
 
 
@@ -45,9 +46,11 @@ class SingUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
       password: "",
-      username: "",
+      birthdate: "",
+      photo: ""
     };
   }
 
@@ -58,12 +61,12 @@ class SingUp extends Component {
   };
 
   handleSignupButton = () => {
-    this.props.createUser(this.state.email, this.state.password, this.state.username, this.state.birthDate)
+    this.props.createUser(this.state.name, this.state.email, this.state.birthdate, this.state.password, this.state.photo)
   }
 
 
   render() {
-    const { email, password, username, birthDate } = this.state;
+    const { name, email, birthdate, password, photo } = this.state;
 
     return (
 
@@ -83,10 +86,10 @@ class SingUp extends Component {
 
           <TextField
             onChange={this.handleFieldChange}
-            name="username"
+            name="name"
             type="text"
-            label="Usuário"
-            value={username}
+            label="Nome"
+            value={name}
           />
 
           <TextField
@@ -99,10 +102,18 @@ class SingUp extends Component {
 
           <TextField
             onChange={this.handleFieldChange}
-            name="birthDate"
+            name="birthdate"
             type="date"
             label="Birth Date"
-            value={birthDate}
+            value={birthdate}
+          />
+
+          <TextField
+            onChange={this.handleFieldChange}
+            name="photo"
+            type="text"
+            label="Photo"
+            value={photo}
           />
           <Button onClick={this.handleSignupButton}>Cadastrar</Button>
         </SignUpWrapper>
@@ -112,7 +123,7 @@ class SingUp extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  // createUser: (email, password, username) => dispatch(createUser(email, password, username)),
+  createUser: (name, email, birthdate, password, photo) => dispatch(createUser(name, email, birthdate, password, photo)),
   goToHome: () => dispatch(push(routes.Home))
 
 })
